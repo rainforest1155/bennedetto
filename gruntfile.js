@@ -14,6 +14,7 @@ module.exports = function(grunt) {
                         'node_modules/angular-material-data-table/dist/md-data-table.min.js',
                         'node_modules/chart.js/Chart.min.js',
                         'node_modules/angular-chart.js/dist/angular-chart.min.js',
+                        'node_modules/moment-timezone/builds/moment-timezone.min.js',
                         'static/js/globals.js'
                     ],
                     'static/vendor-debug.js': [
@@ -27,6 +28,7 @@ module.exports = function(grunt) {
                         'node_modules/angular-material-data-table/dist/md-data-table.js',
                         'node_modules/chart.js/Chart.js',
                         'node_modules/angular-chart.js/dist/angular-chart.js',
+                        'node_modules/moment-timezone/builds/moment-timezone.min.js',
                         'static/js/globals.js'
                     ]
                 }

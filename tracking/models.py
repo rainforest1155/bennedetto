@@ -7,6 +7,7 @@ from django.core.validators import MinValueValidator
 from django.utils import timezone
 
 from authenticating.models import User
+from bennedetto.utils import replace_zone_with_utc
 
 
 class TotalByMixin(object):
@@ -92,10 +93,12 @@ class TransactionQuerySet(models.QuerySet, TotalByMixin, UserMixin):
 
         if start_of_day:
             start_of_day = datetime.datetime.combine(start_of_day, datetime.time.min)
+            start_of_day = replace_zone_with_utc(start_of_day)
             query_set = query_set.filter(timestamp__gte=start_of_day)
 
         if end_of_day:
             end_of_day = datetime.datetime.combine(end_of_day, datetime.time.max)
+            end_of_day = replace_zone_with_utc(end_of_day)
             query_set = query_set.filter(timestamp__lte=end_of_day)
 
         return query_set
